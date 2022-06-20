@@ -18,20 +18,17 @@ class Buch {
         this.Anzahl = this.Anzahl - 1
     }
 }
-function neuesFahrzeug() {
-     buch = new buch ("", "", "")
-}
 
 let lager = []
 
 function init() {
     let buch = new Buch("Schwarz", "Duden", "J.K. Rowling", "19.99€")
     lager.push(buch)
-    buch = new Buch("Weiß", "Cornelsen", "", "")
+    buch = new Buch("Weiß", "Cornelsen", "Gotthold Ephraim Lessing", "14.99€")
     lager.push(buch)
-    buch = new Buch("Orange", "", "", "")
+    buch = new Buch("Orange", "Aviva", "Theodor Sturm", "9.99€")
     lager.push(buch)
-    buch = new Buch("Gelb", "", "", "")
+    buch = new Buch("Gelb", "Auer", "Stephen King", "16.99€")
     lager.push(buch)
 }
 
@@ -41,4 +38,15 @@ function lagerListe() {
     }
 }
 
-init()
+function sortieren(){
+    lager.sort(vergleich)
+}
+function vergleich(buch1,buch2){
+    if(buch1.Autor < buch2.Autor){
+        return -1;
+    }
+    if(buch1.Autor > buch2.Autor){
+        return 1;
+    }
+    return 0
+}
